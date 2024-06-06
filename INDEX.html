@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Alpha Design Home Decor</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    </style>
+</head>
+<body>
+    <div class="login-background">
+        <div class="login-content">
+            <div class="login-image">
+                <img src="C:\Users\arpan\OneDrive\Imágenes\Saved Pictures\spacejoy-IH7wPsjwomc-unsplash 2.jpg" alt="Decorative Image">
+            </div>
+            <div class="login-container">
+                <img src="C:\Users\arpan\OneDrive\Imágenes\Saved Pictures\Alpha A Logo.png" alt="Alpha Design Logo" class="logo">
+                <h2>Login</h2>
+                <form id="login-form" action="shop.html" method="GET"> <!-- Changed action and method -->
+                    <input type="text" placeholder="Username" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <!-- Text for creating an account -->
+                <p>Don't have an account yet? <a href="create_profile.html">Create one</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            // Check if user has an account or not
+            var hasAccount = false; // You need to implement logic to check if the user has an account
+
+            // If the user has an account, let the form submission continue and redirect them to shop.html
+            if (hasAccount) {
+                window.location.href = 'shop.html';
+                event.preventDefault(); // Prevent the default form submission behavior
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
