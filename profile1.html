@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Alpha Design Home Decor</title>
+    <link rel="stylesheet" href="profile1.css">
+</head>
+<body>
+    <div class="profile-container">
+        <h2>Your Profile</h2>
+        <div id="profile-content">
+            <img id="profile-image" src="C:\Users\arpan\Downloads\Screenshot 2024-06-05 190801.png" alt="Profile Picture"><br>
+            <p><strong>Name:</strong> <span id="profile-name"></span></p>
+            <p><strong>Email:</strong> <span id="profile-email"></span></p>
+            <p><strong>Phone Number:</strong> <span id="profile-phone"></span></p>
+            <button id="edit-button">Edit Information</button>
+            <a href="shop.html">Your account has been created. Tap to continue.</a>
+            <!-- Form for editing profile information (initially hidden) -->
+            <form id="edit-profile-form" style="display: none;">
+                <input type="text" name="name" placeholder="Name" required><br>
+                <input type="email" name="email" placeholder="Email" required><br>
+                <input type="tel" name="phone" placeholder="Phone Number" required><br>
+                <input type="password" name="password" placeholder="Password" required><br>
+                <input type="file" name="profile_picture" accept="image/*" required><br>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userProfile = JSON.parse(localStorage.getItem('userProfile'));
+
+            if (userProfile) {
+                document.getElementById('profile-name').textContent = userProfile.name;
+                document.getElementById('profile-email').textContent = userProfile.email;
+                document.getElementById('profile-phone').textContent = userProfile.phone;
+
+                if (userProfile.profilePicture) {
+                    const profileImage = document.getElementById('profile-image');
+                    profileImage.src = URL.createObjectURL(userProfile.profilePicture);
+                    profileImage.style.display = 'block';
+                }
+            }
+
+            document.getElementById('edit-button').addEventListener('click', function() {
+                // Redirect the user to the create account page
+                window.location.href = 'create_profile.html';
+            });
+
+            // Add event listener to the form for saving changes
+            document.getElementById('edit-profile-form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                // Implement saving changes here
+            });
+        });
+    </script>
+</body>
+</html>
+
+
