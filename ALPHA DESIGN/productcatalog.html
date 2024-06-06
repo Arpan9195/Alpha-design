@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog - Alpha Design Home Decor</title>
+    <link rel="stylesheet" href="productcatalog.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .catalog {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .product-entry {
+            display: flex;
+            flex-direction: column;
+            width: 30%;
+            margin: 1%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+        .product-entry img {
+            width: 100%;
+            height: auto;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-info h2 {
+            margin: 0 0 10px;
+        }
+        .product-info p {
+            margin: 5px 0;
+        }
+        .product-info button {
+            margin: 5px 5px 0 0;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-info button.move-to-wishlist {
+            background-color: #6c757d;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+        }
+        .filter {
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .filter label, .filter select {
+            margin: 0 10px;
+        }
+        .cart-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+    </style>
+    <script>
+        function filterProducts() {
+            const typeFilter = document.getElementById('type-filter').value;
+            const styleFilter = document.getElementById('style-filter').value;
+
+            const products = document.querySelectorAll('.product-entry');
+
+            products.forEach(product => {
+                const type = product.getAttribute('data-type');
+                const style = product.getAttribute('data-style');
+
+                if ((typeFilter === 'all' || type === typeFilter) && (styleFilter === 'all' || style === styleFilter)) {
+                    product.style.display = 'flex';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            filterProducts();
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Product Catalog</h1>
+        <a href="cart.html" class="cart-icon">
+            <img src="C:\Users\arpan\OneDrive\Imágenes\Saved Pictures\e51195a953682056f2e3b94be4fed935.png" alt="Cart" width="50">
+        </a>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="shop.html">Home</a></li>
+            <li><a href="design_gallery.html">Design Gallery</a></li>
+            <li><a href="community.html">community</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="filter">
+            <label for="type-filter">Filter by Type:</label>
+            <select id="type-filter" onchange="filterProducts()">
+                <option value="all">All</option>
+                <option value="furniture">Furniture</option>
+                <option value="rugs">Rugs</option>
+                <option value="lamps">Lamps</option>
+                <option value="wall-art">Wall Art</option>
+            </select>
+
+            <label for="style-filter">Filter by Style:</label>
+            <select id="style-filter" onchange="filterProducts()">
+                <option value="all">All</option>
+                <option value="modern">Modern</option>
+                <option value="traditional">Traditional</option>
+                <option value="industrial lamps">Industrial</option>
+                <option value="bohemian">Bohemian</option>
+            </select>
+        </div>
+
+        <div class="catalog" id="catalog">
+            <!-- Furniture Entries -->
+            <div class="product-entry" data-type="furniture" data-style="modern">
+                <img src="C:\Users\arpan\Downloads\Screenshot 2024-06-05 223634.jpg" alt="Modern Sofa">
+                <div class="product-info">
+                    <h2>Modern Sofa</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the modern sofa.</p>
+                    <p><strong>Price: $1,500</strong></p>
+                    <button onclick="addToCart('Modern Sofa', 1500)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Modern Sofa')">Move to Wishlist</button>
+                </div>
+            </div>
+            <div class="product-entry" data-type="furniture" data-style="traditional">
+                <img src="C:\Users\arpan\Downloads\Screenshot 2024-06-05 224357.jpg" alt="Traditional Armchair">
+                <div class="product-info">
+                    <h2>Traditional Armchair</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the traditional armchair.</p>
+                    <p><strong>Price: $700</strong></p>
+                    <button onclick="addToCart('Traditional Armchair', 700)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Traditional Armchair')">Move to Wishlist</button>
+                </div>
+            </div>
+
+            <!-- Rugs Entries -->
+            <div class="product-entry" data-type="rugs" data-style="bohemian">
+                <img src="C:\Users\arpan\Downloads\Screenshot 2024-06-05 224613.jpg" alt="Bohemian Rug">
+                <div class="product-info">
+                    <h2>Bohemian Rug</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the bohemian rug.</p>
+                    <p><strong>Price: $300</strong></p>
+                    <button onclick="addToCart('Bohemian Rug', 300)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Bohemian Rug')">Move to Wishlist</button>
+                </div>
+            </div>
+            <div class="product-entry" data-type="rugs" data-style="modern">
+                <img src="C:\Users\arpan\Downloads\Screenshot 2024-06-05 224102.jpg" alt="Modern Rug">
+                <div class="product-info">
+                    <h2>Modern Rug</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the modern rug.</p>
+                    <p><strong>Price: $350</strong></p>
+                    <button onclick="addToCart('Modern Rug', 350)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Modern Rug')">Move to Wishlist</button>
+                </div>
+            </div>
+
+            <!-- Lamps Entries -->
+            <div class="product-entry" data-type="lamps" data-style="industrial">
+                <img src="C:\Users\arpan\Downloads\Screenshot 2024-06-05 224803.jpg" alt="Industrial Lamp">
+                <div class="product-info">
+                    <h2>Industrial Lamp</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the industrial lamp.</p>
+                    <p><strong>Price: $150</strong></p>
+                    <button onclick="addToCart('Industrial Lamp', 150)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Industrial Lamp')">Move to Wishlist</button>
+                </div>
+            </div>
+            <div class="product-entry" data-type="lamps" data-style="traditional">
+                <img src="C:\Users\arpan\Downloads\Screenshot 2024-06-05 225012.jpg" alt="Traditional Lamp">
+                <div class="product-info">
+                    <h2>Traditional Lamp</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the traditional lamp.</p>
+                    <p><strong>Price: $120</strong></p>
+                    <button onclick="addToCart('Traditional Lamp', 120)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Traditional Lamp')">Move to Wishlist</button>
+                </div>
+            </div>
+
+            <!-- Wall Art Entries -->
+            <div class="product-entry" data-type="wall-art" data-style="modern">
+                <img src="C:\Users\arpan\Downloads\Screenshot 2024-06-05 225221.jpg" alt="Modern Wall Art">
+                <div class="product-info">
+                    <h2>Modern Wall Art</h2>
+                    <p>By Designer Name</p>
+                    <p>Description of the modern wall art.</p>
+                    <p><strong>Price: $200</strong></p>
+                    <button onclick="addToCart('Modern Wall Art', 200)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Modern Wall Art')">Move to Wishlist</button>
+                </div>
+            </div>
+            <div class="product-entry" data-type="wall-art" data-style="bohemian">
+                <img src="C:\Users\arpan\Downloads\Screenshot 2024-06-05 225450.jpg" alt="Bohemian Wall Art">
+                <div class="product-info">
+                    <h2>Bohemian Wall Art</h2>
+                    <p>Designer: Arpan Artworks</p>
+                    <p>Description of the bohemian wall art.</p>
+                    <p><strong>Price: $120.00</strong></p>
+                    <button onclick="addToCart('Bohemian Wall Art', 120)">Add to Cart</button>
+                    <button class="move-to-wishlist" onclick="moveToWishlist('Bohemian Wall Art')">Move to Wishlist</button>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

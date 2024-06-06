@@ -1,0 +1,86 @@
+/* Shop Container Styles */
+.shop-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove padding */
+    overflow: hidden; /* Ensure the image doesn't overflow */
+}
+
+/* Background Image Styles */
+.shop-background-image {
+    width: 50%; /* Adjust width to position the image on the side */
+    height: 100vh; /* Full height of the viewport */
+    object-fit: cover; /* Cover the entire container */
+}
+
+/* Content Wrapper */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Adjust width to position the content on the side */
+    height: 100vh; /* Full height of the viewport */
+    text-align: center;
+}
+
+/* Welcome Styles */
+.welcome h1 {
+    margin: 0;
+    font-size: 2em;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* Subheading Styles */
+.subheading p {
+    margin: 0;
+    font-size: 2em; /* Increase font size */
+    text-align: center;
+    padding-bottom: 20px;
+    color: green; /* Set text color to green */
+}
+
+/* Shop Action Styles */
+.shop-action p {
+    margin: 0;
+    font-size: 1.2em;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* Description Styles */
+.description p {
+    margin: 0;
+    font-size: 1em;
+    text-align: center;
+}
+
+/* Explore Gallery Styles */
+.explore-gallery {
+    margin-top: 20px; /* Adjust margin as needed */
+    font-size: 1.2em;
+    text-align: center;
+}
+
+/* Product Catalog Styles */
+.product-catalog {
+    margin-top: 20px; /* Adjust spacing */
+    text-align: center;
+}
+
+.product-catalog a {
+    color: orange; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2em; /* Adjust font size */
+}
+
+.product-catalog a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+

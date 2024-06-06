@@ -1,0 +1,73 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white; /* White background */
+    color: orange; /* Orange text color */
+}
+
+/* Profile Container */
+.profile-container {
+    background: none; /* Remove the semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: orange; /* Orange text color */
+    width: 90%; /* Adjust width as needed */
+    max-width: 400px; /* Maximum width of the form */
+}
+
+/* Profile Image */
+.profile-image-container {
+    margin-bottom: 20px;
+}
+
+#profile-image {
+    width: 150px; /* Set a fixed width for the profile image */
+    height: 150px; /* Set a fixed height for the profile image */
+    object-fit: cover; /* Ensure the image covers the container */
+    border-radius: 50%; /* Make the image round */
+    border: 2px solid white; /* Add a white border */
+    display: block; /* Make the image a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+
+/* Profile Form */
+#profile-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#profile-form input, #profile-form button {
+    margin-bottom: 15px;
+    padding: 20px; /* Increased padding for inputs and buttons */
+    font-size: 2em; /* Increased font size */
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    background: #fff; /* White background for inputs */
+}
+
+#profile-form button {
+    background: #ffa500; /* Orange background for the button */
+    color: white; /* White text color for the button */
+    cursor: pointer;
+}
+
+/* Continue Message Styles */
+#continue-message {
+    margin-top: 20px; /* Add margin to separate from the edit button */
+    cursor: pointer; /* Change cursor to pointer when hovering */
+    font-size: 2.5em; /* Increased font size */
+    background: white; /* White background */
+    padding: 15px; /* Increased padding */
+    border-radius: 5px; /* Rounded corners */
+}
+
+
